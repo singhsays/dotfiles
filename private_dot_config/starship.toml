@@ -86,7 +86,7 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$branch]($style)\]'
 
 [hostname]
-format = '[$ssh_symbol$hostname]($style) '
+format = '[$hostname\[$ssh_symbol\]]($style) '
 ssh_only = false
 
 [java]
