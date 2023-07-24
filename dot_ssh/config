@@ -1,0 +1,33 @@
+Host *
+   Protocol 2
+   ControlMaster auto
+   ControlPath ~/.ssh/master-%r@%h:%p
+   ControlPersist yes
+
+Host takedown takedown.c.googlers.com
+  HostName takedown.c.googlers.com
+  User sumeets
+  NumberOfPasswordPrompts 0
+  ChallengeResponseAuthentication no
+  HostbasedAuthentication no
+  KbdInteractiveAuthentication no
+  PasswordAuthentication no
+
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/id_sumeets_internet
+  IdentityFile ~/.ssh/id_github
+
+Host bitbucket.org
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/id_sumeets_internet
+  IdentityFile ~/.ssh/id_bitbucket
+
+Match Host * User sumeets
+  IdentityFile ~/.ssh/id_sumeets_home
+  PreferredAuthentications publickey
+
+Match Host * User admin,root
+  IdentityFile ~/.ssh/id_sumeets_admin
+  PreferredAuthentications publickey
+
