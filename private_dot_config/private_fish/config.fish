@@ -34,8 +34,8 @@ if type -sq pnpm
 end
 
 # conda
-if type -sq conda
-  eval $(which conda) "shell.fish" "hook" $argv | source
+if test -f $HOME/miniconda3/bin/conda
+  eval $HOME/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 end
 
 # Use starship if available
